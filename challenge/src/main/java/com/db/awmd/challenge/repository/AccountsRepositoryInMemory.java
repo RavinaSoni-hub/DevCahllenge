@@ -1,14 +1,12 @@
 package com.db.awmd.challenge.repository;
 
-import com.db.awmd.challenge.domain.Account;
-import com.db.awmd.challenge.domain.AccountMoneyTransferRequest;
-import com.db.awmd.challenge.exception.DuplicateAccountIdException;
-import com.db.awmd.challenge.exception.OverdraftsAccountException;
-
-import java.math.BigDecimal;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+
 import org.springframework.stereotype.Repository;
+
+import com.db.awmd.challenge.domain.Account;
+import com.db.awmd.challenge.exception.DuplicateAccountIdException;
 
 @Repository
 public class AccountsRepositoryInMemory implements AccountsRepository {
@@ -33,18 +31,6 @@ public class AccountsRepositoryInMemory implements AccountsRepository {
 		accounts.clear();
 	}
 
-	// Code added for Dev challege
-	@Override
-	public synchronized boolean transferMoney(Account fromAccount, Account toAccount, BigDecimal transferAmount) {
-
-		if (fromAccount.getBalance().subtract(transferAmount).compareTo(BigDecimal.ZERO) > 0) {
-			fromAccount.setBalance(fromAccount.getBalance().subtract(transferAmount));
-			toAccount.setBalance(toAccount.getBalance().add(transferAmount));
-			return true;
-		} else
-			throw new OverdraftsAccountException("Transfer of " + transferAmount + " not possible ,"
-					+ fromAccount.getAccountId() + " going overdafts ");
-
-	}
+	
 
 }

@@ -26,7 +26,7 @@ bootRun {
     main = 'com.db.awmd.challenge.DevChallengeApplication'
 }
 springBoot {
-  mainClass = "DevChallengeApplication.Application"
+  mainClass = "DevChallengeApplication"
 }
 dependencies {
   compile 'org.springframework.boot:spring-boot-starter-web'
