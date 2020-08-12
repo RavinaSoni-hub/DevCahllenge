@@ -1,0 +1,6 @@
+* Profiling required to move code for higer env
+* More error/execption senario should be handled
+* Use of actual database to store accounts
+* Separate out transfer logic and balance update logic on service and dao layer
+* Masking of accountIds must be done in request ,notification messge and logs
+* Service readMe with service functionality for maintenance
