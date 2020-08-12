@@ -44,17 +44,7 @@ public class AccountsServiceTest {
 
   }
   
-  @Test
-  public void transferMoney() throws Exception {
-    Account fromAccount = new Account("Id-123");
-    fromAccount.setBalance(new BigDecimal(1000));
-    Account toAccount = new Account("Id-123");
-    toAccount.setBalance(new BigDecimal(1000));
-    this.accountsService.transferMoney(fromAccount, toAccount, new BigDecimal(300));
-
-    assertThat(fromAccount.getBalance()).isEqualTo("700");
-    assertThat(toAccount.getBalance()).isEqualTo("1300");
-  }
+  
   
 
 }
